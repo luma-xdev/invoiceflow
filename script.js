@@ -786,3 +786,184 @@ document.addEventListener("DOMContentLoaded", () => {
     calculateInvoice();
 
 });
+/* =========================================
+   AUTO SAVE
+========================================= */
+
+const STORAGE_KEY = "invoiceflow-data";
+
+function saveInvoiceData() {
+
+    const data = {};
+
+    document.querySelectorAll(
+        "input, textarea, select"
+    ).forEach(element => {
+
+        if (element.id) {
+            data[element.id] = element.value;
+        }
+
+    });
+
+    const items = [];
+
+    document
+        .querySelectorAll(".invoice-item")
+        .forEach(item => {
+
+            items.push({
+                description:
+                    item.querySelector(".item-description").value,
+
+                quantity:
+                    item.querySelector(".item-quantity").value,
+
+                rate:
+                    item.querySelector(".item-rate").value
+            });
+
+        });
+
+    data.items = items;
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+    );
+}
+
+
+function loadInvoiceData() {
+
+    const saved =
+        localStorage.getItem(STORAGE_KEY);
+
+    if (!saved) {
+        return;
+    }
+
+    try {
+
+        const data =
+            JSON.parse(saved);
+
+        Object.keys(data).forEach(key => {
+
+            const element =
+                document.getElementById(key);
+
+            if (
+                element &&
+                key !== "items"
+            ) {
+                element.value = data[key];
+            }
+
+        });
+
+
+        if (
+            Array.isArray(data.items) &&
+            data.items.length > 0
+        ) {
+
+            itemsContainer.innerHTML = "";
+
+            data.items.forEach(savedItem => {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "invoice-item";
+
+                item.innerHTML = `
+                    <input
+                        type="text"
+                        class="item-description"
+                        placeholder="Service description"
+                        value="${escapeHTML(
+                            savedItem.description || ""
+                        )}"
+                    >
+
+                    <input
+                        type="number"
+                        class="item-quantity"
+                        value="${savedItem.quantity || 1}"
+                        min="1"
+                    >
+
+                    <input
+                        type="number"
+                        class="item-rate"
+                        value="${savedItem.rate || 0}"
+                        min="0"
+                        step="0.01"
+                    >
+
+                    <span class="item-total">
+                        ${formatMoney(0)}
+                    </span>
+
+                    <button
+                        type="button"
+                        class="remove-item"
+                        aria-label="Remove item"
+                    >
+                        ×
+                    </button>
+                `;
+
+                itemsContainer.appendChild(item);
+
+                attachItemEvents(item);
+
+            });
+
+        }
+
+
+        updateBasicPreview();
+
+        calculateInvoice();
+
+    } catch (error) {
+
+        console.error(
+            "Could not restore saved invoice:",
+            error
+        );
+
+    }
+
+}
+
+
+document
+    .querySelectorAll(
+        "input, textarea, select"
+    )
+    .forEach(element => {
+
+        element.addEventListener(
+            "input",
+            saveInvoiceData
+        );
+
+        element.addEventListener(
+            "change",
+            saveInvoiceData
+        );
+
+    });
+
+
+addItemButton.addEventListener(
+    "click",
+    saveInvoiceData
+);
+
+
+loadInvoiceData();
