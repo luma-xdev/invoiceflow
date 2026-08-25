@@ -964,46 +964,6 @@ select:focus {
 
 
 /* =========================================
-   LIGHT THEME
-========================================= */
-
-body.light-theme {
-    --bg: #f1f2f6;
-    --panel: #ffffff;
-    --panel-2: #f8f9fb;
-
-    --border:
-        rgba(20,25,35,0.10);
-
-    --text: #16181d;
-    --muted: #69707d;
-
-    --input: #f7f8fa;
-
-    background:
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(139,124,255,0.12),
-            transparent 30%
-        ),
-        #f1f2f6;
-}
-
-body.light-theme .topbar {
-    background:
-        rgba(241,242,246,0.86);
-}
-
-body.light-theme input,
-body.light-theme textarea,
-body.light-theme select {
-    color: #16181d;
-}
-
-body.light-theme .icon-button {
-    color: #16181d;
-}
-/* =========================================
    LIGHT MODE — INVOICE FORM FIX
 ========================================= */
 
