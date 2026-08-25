@@ -4,7 +4,7 @@
 
 ## 🌐 Live Demo
 
-https://luma-xdev.github.io/invoiceflow/
+https://luma-xdev.github.io/invoiceflowbyluma/
 
 ## ✨ Features
 
