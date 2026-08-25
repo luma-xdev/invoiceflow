@@ -1,1 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>InvoiceFlow — Freelance Invoice Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-mark">IF</span>
+
+            <div>
+                <h1>InvoiceFlow</h1>
+                <p>Freelance Invoice Generator</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                type="button"
+                id="themeToggle"
+                class="icon-button"
+                aria-label="Toggle theme"
+            >
+                ◐
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN APPLICATION
+    ========================================== -->
+
+    <main class="app-container">
+
+        <!-- PAGE INTRO -->
+
+        <section class="page-intro">
+
+            <div>
+                <span class="eyebrow">
+                    BUSINESS TOOL
+                </span>
+
+                <h2>
+                    Create professional invoices
+                    in seconds.
+                </h2>
+
+                <p>
+                    Add your business details, client information,
+                    services and pricing. InvoiceFlow calculates
+                    everything automatically.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             INVOICE WORKSPACE
+        ====================================== -->
+
+        <section class="workspace">
+
+            <!-- =================================
+                 LEFT — INVOICE FORM
+            ================================== -->
+
+            <div class="form-panel">
+
+                <!-- BUSINESS DETAILS -->
+
+                <div class="form-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-number">01</span>
+                            <h3>Your Business</h3>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group full">
+                            <label for="businessName">
+                                Business / Freelancer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="businessName"
+                                placeholder="Luma-XDEV"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="businessEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="businessEmail"
+                                placeholder="hello@example.com"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="businessPhone">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="businessPhone"
+                                placeholder="+91 00000 00000"
+                            >
+                        </div>
+
+                        <div class="input-group full">
+                            <label for="businessAddress">
+                                Business Address
+                            </label>
+
+                            <textarea
+                                id="businessAddress"
+                                rows="3"
+                                placeholder="Your business address"
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CLIENT DETAILS -->
+
+                <div class="form-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-number">02</span>
+                            <h3>Client Details</h3>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group full">
+                            <label for="clientName">
+                                Client Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="clientName"
+                                placeholder="Client / Company Name"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="clientEmail">
+                                Client Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="clientEmail"
+                                placeholder="client@example.com"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="clientPhone">
+                                Client Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="clientPhone"
+                                placeholder="+91 00000 00000"
+                            >
+                        </div>
+
+                        <div class="input-group full">
+                            <label for="clientAddress">
+                                Client Address
+                            </label>
+
+                            <textarea
+                                id="clientAddress"
+                                rows="3"
+                                placeholder="Client address"
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INVOICE DETAILS -->
+
+                <div class="form-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-number">03</span>
+                            <h3>Invoice Details</h3>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="invoiceNumber">
+                                Invoice Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="invoiceNumber"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="invoiceCurrency">
+                                Currency
+                            </label>
+
+                            <select id="invoiceCurrency">
+                                <option value="₹">INR — ₹</option>
+                                <option value="$">USD — $</option>
+                                <option value="€">EUR — €</option>
+                                <option value="£">GBP — £</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="invoiceDate">
+                                Invoice Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="invoiceDate"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="dueDate">
+                                Due Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dueDate"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICES -->
+
+                <div class="form-section">
+
+                    <div class="section-heading section-heading-row">
+
+                        <div>
+                            <span class="section-number">04</span>
+                            <h3>Services</h3>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="addItemButton"
+                            class="secondary-button"
+                        >
+                            + Add Item
+                        </button>
+
+                    </div>
+
+
+                    <div class="items-header">
+                        <span>Description</span>
+                        <span>Qty</span>
+                        <span>Rate</span>
+                        <span>Total</span>
+                        <span></span>
+                    </div>
+
+
+                    <div id="itemsContainer">
+
+                        <div class="invoice-item">
+
+                            <input
+                                type="text"
+                                class="item-description"
+                                placeholder="Website design"
+                            >
+
+                            <input
+                                type="number"
+                                class="item-quantity"
+                                value="1"
+                                min="1"
+                            >
+
+                            <input
+                                type="number"
+                                class="item-rate"
+                                value="0"
+                                min="0"
+                                step="0.01"
+                            >
+
+                            <span class="item-total">
+                                ₹0.00
+                            </span>
+
+                            <button
+                                type="button"
+                                class="remove-item"
+                                aria-label="Remove item"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TAX & DISCOUNT -->
+
+                <div class="form-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-number">05</span>
+                            <h3>Adjustments</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label for="taxRate">
+                                Tax (%)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="taxRate"
+                                value="0"
+                                min="0"
+                                step="0.01"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label for="discountRate">
+                                Discount (%)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="discountRate"
+                                value="0"
+                                min="0"
+                                step="0.01"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTES -->
+
+                <div class="form-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-number">06</span>
+                            <h3>Notes</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="invoiceNotes">
+                            Additional Note
+                        </label>
+
+                        <textarea
+                            id="invoiceNotes"
+                            rows="4"
+                            placeholder="Thank you for your business."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="clearButton"
+                        class="ghost-button"
+                    >
+                        Clear
+                    </button>
+
+                    <button
+                        type="button"
+                        id="printButton"
+                        class="primary-button"
+                    >
+                        Print Invoice
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 RIGHT — LIVE PREVIEW
+            ================================== -->
+
+            <div class="preview-panel">
+
+                <div class="preview-topbar">
+
+                    <div>
+                        <span class="eyebrow">
+                            LIVE PREVIEW
+                        </span>
+
+                        <h3>Your Invoice</h3>
+                    </div>
+
+                    <span class="status-dot">
+                        Live
+                    </span>
+
+                </div>
+
+
+                <!-- INVOICE -->
+
+                <article
+                    class="invoice-preview"
+                    id="invoicePreview"
+                >
+
+                    <div class="invoice-header">
+
+                        <div>
+
+                            <h2
+                                id="previewBusinessName"
+                            >
+                                Your Business
+                            </h2>
+
+                            <p
+                                id="previewBusinessContact"
+                            >
+                                hello@example.com
+                            </p>
+
+                            <p
+                                id="previewBusinessPhone"
+                            >
+                                +91 00000 00000
+                            </p>
+
+                            <p
+                                id="previewBusinessAddress"
+                            >
+                                Your business address
+                            </p>
+
+                        </div>
+
+                        <div class="invoice-title">
+
+                            <span>INVOICE</span>
+
+                            <strong
+                                id="previewInvoiceNumber"
+                            >
+                                #INV-001
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="invoice-meta">
+
+                        <div>
+                            <span>Bill To</span>
+
+                            <strong
+                                id="previewClientName"
+                            >
+                                Client Name
+                            </strong>
+
+                            <p
+                                id="previewClientEmail"
+                            >
+                                client@example.com
+                            </p>
+
+                            <p
+                                id="previewClientPhone"
+                            >
+                                +91 00000 00000
+                            </p>
+
+                            <p
+                                id="previewClientAddress"
+                            >
+                                Client address
+                            </p>
+                        </div>
+
+
+                        <div>
+
+                            <div>
+                                <span>Invoice Date</span>
+
+                                <strong
+                                    id="previewInvoiceDate"
+                                >
+                                    —
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Due Date</span>
+
+                                <strong
+                                    id="previewDueDate"
+                                >
+                                    —
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+
+                    <div class="invoice-table">
+
+                        <div class="invoice-table-head">
+
+                            <span>
+                                Description
+                            </span>
+
+                            <span>
+                                Qty
+                            </span>
+
+                            <span>
+                                Rate
+                            </span>
+
+                            <span>
+                                Amount
+                            </span>
+
+                        </div>
+
+                        <div
+                            id="previewItems"
+                            class="invoice-table-body"
+                        >
+
+                            <div class="preview-item">
+
+                                <span>
+                                    Website design
+                                </span>
+
+                                <span>
+                                    1
+                                </span>
+
+                                <span>
+                                    ₹0.00
+                                </span>
+
+                                <strong>
+                                    ₹0.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTALS -->
+
+                    <div class="invoice-bottom">
+
+                        <div class="invoice-note">
+
+                            <span>
+                                Note
+                            </span>
+
+                            <p
+                                id="previewNotes"
+                            >
+                                Thank you for your business.
+                            </p>
+
+                        </div>
+
+
+                        <div class="invoice-totals">
+
+                            <div>
+                                <span>Subtotal</span>
+
+                                <strong
+                                    id="previewSubtotal"
+                                >
+                                    ₹0.00
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Tax</span>
+
+                                <strong
+                                    id="previewTax"
+                                >
+                                    ₹0.00
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Discount</span>
+
+                                <strong
+                                    id="previewDiscount"
+                                >
+                                    ₹0.00
+                                </strong>
+                            </div>
+
+                            <div class="grand-total">
+
+                                <span>Total</span>
+
+                                <strong
+                                    id="previewGrandTotal"
+                                >
+                                    ₹0.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="invoice-footer">
+
+                        <span>
+                            Generated with InvoiceFlow
+                        </span>
+
+                        <span>
+                            Thank you for your business.
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
