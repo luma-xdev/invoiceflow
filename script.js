@@ -659,6 +659,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!confirmed) {
                 return;
+               localStorage.removeItem(STORAGE_KEY);
             }
 
 
