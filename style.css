@@ -1003,7 +1003,48 @@ body.light-theme select {
 body.light-theme .icon-button {
     color: #16181d;
 }
+/* =========================================
+   LIGHT MODE — INVOICE FORM FIX
+========================================= */
 
+body.light-theme input,
+body.light-theme select,
+body.light-theme textarea {
+
+    background: #ffffff;
+    color: #17191f;
+    border-color: rgba(20, 25, 35, 0.14);
+
+}
+
+body.light-theme input:focus,
+body.light-theme select:focus,
+body.light-theme textarea:focus {
+
+    background: #ffffff;
+    color: #17191f;
+    border-color: rgba(139, 124, 255, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(139, 124, 255, 0.10);
+
+    outline: none;
+
+}
+
+body.light-theme input::placeholder,
+body.light-theme textarea::placeholder {
+
+    color: #8a909b;
+
+}
+
+body.light-theme option {
+
+    background: #ffffff;
+    color: #17191f;
+
+}
 
 /* =========================================
    PRINT
